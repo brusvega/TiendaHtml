@@ -1,0 +1,209 @@
+<!-- carrito.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carrito | Huerto Hogar</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/header.css" />
+  <style>
+    .cart-img { width: 64px; height: 64px; object-fit: cover; border-radius: 8px; }
+    .qty-input { width: 80px; }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Barra de navegación principal">
+        <div class="container-fluid">
+          <a class="navbar-brand"  href="index.html">
+            <span>
+                <img src="img/logoHuerto.jpg" alt="logoHuerto" class="logo">
+            </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                  aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menú">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+              <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+              <li class="nav-item"><a class="nav-link" href="productos.html">Tienda</a></li>
+              <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+              <li class="nav-item"><a class="nav-link" href="login.html">Cuenta</a></li>
+              <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+  <!-- Main -->
+  <main class="container my-5">
+    <h1 class="h3 mb-4">Carrito de compras</h1>
+
+    <div id="cartContainer"></div>
+
+    <div class="d-flex gap-2 mt-4">
+      <a class="btn btn-outline-secondary" href="productos.html">⬅ Seguir comprando</a>
+      <button id="btnClear" class="btn btn-outline-danger">Vaciar carrito</button>
+      <button id="btnCheckout" class="btn btn-success ms-auto">Finalizar compra</button>
+    </div>
+  </main>
+
+  <!-- Modulo de pedido confirmado -->
+    <div class="modal fade" id="orderModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center p-4" style="border-radius: 15px;">
+          <div class="modal-header border-0 justify-content-center">
+            <h5 class="modal-title fw-bold text-success"> ¡Pedido confirmado!</h5>
+          </div>
+          <div class="modal-body">
+            <img src="https://cdn-icons-png.flaticon.com/512/148/148767.png" alt="Confirmado" width="90" class="mb-3" />
+            <p class="fs-5">Tu compra fue registrada con éxito. ¡Gracias por preferirnos! </p>
+          </div>
+          <div class="modal-footer border-0 justify-content-center">
+            <button type="button" class="btn btn-success px-4" data-bs-dismiss="modal">Aceptar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  <!-- Footer -->
+  <footer class="py-4 bg-light mt-5">
+    <div class="container text-center">
+      <small class="text-muted">&copy; 2025 Huerto Hogar — Todos los derechos reservados.</small>
+    </div>
+  </footer>
+
+  <!-- Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- JS del carrito -->
+  <script>
+    const KEY_CART = "app_cart";
+
+    // Obtener carrito
+    function getCart() {
+      const raw = localStorage.getItem(KEY_CART);
+      return raw ? JSON.parse(raw) : [];
+    }
+
+    // Guardar carrito
+    function saveCart(cart) {
+      localStorage.setItem(KEY_CART, JSON.stringify(cart));
+    }
+
+    // Renderizar carrito
+    function renderCart() {
+      const cont = document.getElementById("cartContainer");
+      const cart = getCart();
+
+      if (cart.length === 0) {
+        cont.innerHTML = `<p class="text-center text-muted">Tu carrito está vacío 🛒</p>`;
+        return;
+      }
+
+      let total = 0;
+      cont.innerHTML = `
+        <div class="table-responsive">
+          <table class="table align-middle">
+            <thead>
+              <tr>
+                <th>Producto</th>
+                <th class="text-center">Precio</th>
+                <th class="text-center">Cantidad</th>
+                <th class="text-end">Subtotal</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              ${cart.map((item, i) => {
+                const subtotal = item.precio * item.qty;
+                total += subtotal;
+                return `
+                  <tr>
+                    <td><img src="${item.imagen}" class="cart-img me-2" alt="${item.nombre}">${item.nombre}</td>
+                    <td class="text-center">$${item.precio}</td>
+                    <td class="text-center">
+                      <input type="number" min="1" value="${item.qty}" data-index="${i}" class="form-control qty-input">
+                    </td>
+                    <td class="text-end fw-bold">$${subtotal}</td>
+                    <td class="text-end">
+                      <button class="btn btn-sm btn-outline-danger" data-remove="${i}">Quitar</button>
+                    </td>
+                  </tr>
+                `;
+              }).join("")}
+            </tbody>
+            <tfoot>
+              <tr>
+                <th colspan="3" class="text-end">Total</th>
+                <th class="text-end">$${total}</th>
+                <th></th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      `;
+    }
+
+    // Eventos
+    document.addEventListener("input", (e) => {
+      if (e.target.matches(".qty-input")) {
+        const index = e.target.dataset.index;
+        let cart = getCart();
+        let qty = parseInt(e.target.value, 10);
+        if (qty < 1) qty = 1;
+        cart[index].qty = qty;
+        saveCart(cart);
+        renderCart();
+      }
+    });
+
+    document.addEventListener("click", (e) => {
+      if (e.target.dataset.remove !== undefined) {
+        let cart = getCart();
+        cart.splice(e.target.dataset.remove, 1);
+        saveCart(cart);
+        renderCart();
+      }
+    });
+
+    document.getElementById("btnClear").addEventListener("click", () => {
+      if (confirm("¿Vaciar el carrito?")) {
+        localStorage.removeItem(KEY_CART);
+        renderCart();
+      }
+    });
+
+    document.getElementById("btnCheckout").addEventListener("click", () => {
+      const cart = getCart();
+      if (cart.length === 0) {
+        // Podemos dejar un alert feo o hacer otro modal de "carrito vacío"
+        alert("Tu carrito está vacío.");
+        return;
+      }
+
+      // Mostrar modal de pedido confirmado
+      const orderModal = new bootstrap.Modal(document.getElementById("orderModal"));
+      orderModal.show();
+
+      // Limpiar carrito después de confirmar
+      localStorage.removeItem(KEY_CART);
+      renderCart();
+    });
+
+
+    // Inicializar
+    renderCart();
+  </script>
+</body>
+</html>

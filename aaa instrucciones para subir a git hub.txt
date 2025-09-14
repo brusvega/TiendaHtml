@@ -1,0 +1,13 @@
+instrucciones para subir a git hub
+
+
+git add .
+git commit -m "Descripción de los cambios"
+git push
+
+
+
+solo ejecute esos 3 comandos 
+
+
+git pull origin main -> trae los cambios desde el main

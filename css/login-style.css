@@ -1,0 +1,88 @@
+
+
+/* =============================
+   PANEL IZQUIERDO / DERECHO (si los usas)
+   ============================= */
+.left-panel {
+  background-color: #ffeeee;
+  color: #000;
+  text-align: center;
+  padding: 50px;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.left-panel h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+.left-panel p {
+  font-size: 1.2rem;
+}
+
+.right-panel {
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e2d46d;
+  min-height: 100%;
+}
+.right-panel .w-75 {
+  max-width: 400px;
+}
+.right-panel h3 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.right-panel form .form-control {
+  border-radius: 8px;
+  padding: 10px;
+}
+.right-panel form .btn {
+  border-radius: 8px;
+  padding: 10px;
+  font-weight: bold;
+}
+
+/* =============================
+   BOTÓN ENTRAR PERSONALIZADO
+   ============================= */
+.btn-custom {
+  background-color: #b1cd93;
+  color: #080000be;
+  border: none;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 10px 14px;
+  transition: background 0.25s ease, transform 0.1s ease;
+}
+.btn-custom:hover {
+  background-color: #538f56;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* =============================
+   BOTÓN GOOGLE (no afectar otros .btn)
+   ============================= */
+.btn-google {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.btn-google img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+/* =============================
+   RESPONSIVE
+   ============================= */
+@media (max-width: 768px) {
+  body { padding-top: 56px; } /* navbar más chico en móvil */
+}

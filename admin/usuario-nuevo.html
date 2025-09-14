@@ -1,0 +1,77 @@
+<!-- admin/usuario-nuevo.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nuevo Usuario</title>
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+  <div class="admin-container">
+    <!-- Menú lateral -->
+    <aside class="sidebar" aria-label="Menú de administración">
+      <h2>Admin Panel</h2>
+      <nav>
+        <ul>
+          <li><a href="usuarios.html" class="active"> Usuarios</a></li>
+          <li><a href="productos.html"> Productos</a></li>
+          <li><a href="../index.html">↩ Salir</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Contenido -->
+    <main class="content">
+      <h1>Nuevo Usuario</h1>
+
+      <form id="form-usuario" novalidate>
+        <label for="run">RUN:</label>
+        <input type="text" id="run" name="run" required />
+        <small class="error" id="error-run"></small>
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" maxlength="50" required />
+        <small class="error" id="error-nombre"></small>
+
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" id="apellidos" name="apellidos" maxlength="100" required />
+        <small class="error" id="error-apellidos"></small>
+
+        <label for="correo">Correo:</label>
+        <input type="email" id="correo" name="correo" maxlength="100" required />
+        <small class="error" id="error-correo"></small>
+
+        <label for="fecha">Fecha de Nacimiento:</label>
+        <input type="date" id="fecha" name="fecha" />
+
+        <label for="tipo">Tipo de Usuario:</label>
+        <select id="tipo" name="tipo" required>
+          <option value="">Seleccione...</option>
+          <option value="Administrador">Administrador</option>
+          <option value="Cliente">Cliente</option>
+          <option value="Vendedor">Vendedor</option>
+        </select>
+        <small class="error" id="error-tipo"></small>
+
+        <label for="region">Región:</label>
+        <select id="region" name="region" required></select>
+
+        <label for="comuna">Comuna:</label>
+        <select id="comuna" name="comuna" required></select>
+
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" name="direccion" maxlength="300" required />
+        <small class="error" id="error-direccion"></small>
+
+        <div class="form-actions">
+          <button type="submit" class="btn"> Guardar</button>
+          <button type="button" class="btn" onclick="location.href='usuarios.html'">↩ Volver</button>
+        </div>
+      </form>
+    </main>
+  </div>
+
+  <script type="module" src="js/usuario-nuevo.js"></script>
+</body>
+</html>

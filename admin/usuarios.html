@@ -1,0 +1,72 @@
+<!-- admin/usuarios.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Administrar Usuarios</title>
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+  <div class="admin-container">
+    <!-- Menú lateral -->
+    <aside class="sidebar" aria-label="Menú de administración">
+      <h2>Admin Panel</h2>
+      <nav>
+        <ul>
+          <li><a href="usuarios.html" class="active"> Usuarios</a></li>
+          <!-- Mantén consistencia con productos.html -->
+          <li><a href="productos.html"> Productos</a></li>
+          <!-- Salir al home público por defecto -->
+          <li><a href="../index.html">↩ Salir</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Contenido -->
+    <main class="content">
+      <header class="content-header">
+        <h1>Usuarios</h1>
+        <button type="button" class="btn" onclick="location.href='usuario-nuevo.html'"> Nuevo Usuario</button>
+      </header>
+
+     <table class="table table-bordered table-striped">
+    <thead class="table-light">
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Correo</th>
+        <th>Rol</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>U001</td>
+        <td>Juan Pérez</td>
+        <td>juanperez@gmail.com</td>
+        <td>Cliente</td>
+        <td>
+          <button class="btn btn-sm btn-warning">Editar</button>
+          <button class="btn btn-sm btn-danger">Eliminar</button>
+        </td>
+      </tr>
+      <tr>
+        <td>U002</td>
+        <td>bruno vega</td>
+        <td>bruno@duoc.cl</td>
+        <td>Administrador</td>
+        <td>
+          <button class="btn btn-sm btn-warning">Editar</button>
+          <button class="btn btn-sm btn-danger">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+      </table>
+    </main>
+  </div>
+
+  <!-- Cargar como módulo para permitir imports en usuarios.js -->
+  <script type="module" src="js/usuarios.js"></script>
+</body>
+</html>

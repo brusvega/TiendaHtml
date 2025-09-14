@@ -1,0 +1,90 @@
+<!-- blogs.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blogs | Huerto Hogar</title>
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/header.css" />
+  <style>
+    .blog-card img {
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px 8px 0 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Barra de navegación principal">
+        <div class="container-fluid">
+          <a class="navbar-brand"  href="index.html">
+            <span>
+                <img src="img/logoHuerto.jpg" alt="logoHuerto" class="logo">
+            </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                  aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menú">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
+              <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+              <li class="nav-item"><a class="nav-link" href="productos.html">Tienda</a></li>
+              <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+              <li class="nav-item"><a class="nav-link" href="login.html">Cuenta</a></li>
+              <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+  <!-- Main -->
+  <main class="container my-5">
+    <h1 class="h3 mb-4 text-center"></h1>
+
+    <div class="row g-4">
+      <!-- Blog 1 -->
+      <div class="col-md-6">
+        <div class="card blog-card h-100">
+          <img src="img/comocultivar.jpg" class="card-img-top" alt="Blog 1">
+          <div class="card-body d-flex flex-column">
+            <h2 class="h5 card-title">Cómo cultivar en casa</h2>
+            <p class="card-text">Descubre tips sencillos para comenzar tu propio huerto urbano con pocos recursos.</p>
+            <a href="blog1.html" class="btn btn-primary mt-auto">Leer más</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog 2 -->
+      <div class="col-md-6">
+        <div class="card blog-card h-100">
+          <img src="img/plantasquepurifican.jpg" class="card-img-top" alt="Blog 2">
+          <div class="card-body d-flex flex-column">
+            <h2 class="h5 card-title">Plantas que purifican el aire</h2>
+            <p class="card-text">Conoce las mejores plantas de interior para mejorar la calidad del aire en tu hogar.</p>
+            <a href="blog2.html" class="btn btn-primary mt-auto">Leer más</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-4 bg-light mt-5">
+    <div class="container text-center">
+      <small class="text-muted">&copy; 2025 Huerto Hogar — Todos los derechos reservados.</small>
+    </div>
+  </footer>
+
+  <!-- Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

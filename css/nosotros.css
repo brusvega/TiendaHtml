@@ -1,0 +1,142 @@
+/* Contenedor de las tarjetas */
+.blog-container, .equipo-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap; /* para que en pantallas pequeñas se acomode */
+  padding: 20px;
+}
+
+/* Tarjeta general */
+.equipo-card {
+  width: 250px;         /* tamaño fijo de la tarjeta */
+  text-align: center;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Imagen dentro de la tarjeta */
+.equipo-card img {
+  width: 100%;          /* que se adapte al ancho de la tarjeta */
+  height: auto;         /* mantiene proporción */
+  border-radius: 10px;  /* esquinas redondeadas */
+  cursor: pointer;      /* cursor de mano al pasar */
+  transition: transform 0.2s ease-in-out;
+}
+
+.equipo-card img:hover {
+  transform: scale(1.05); /* efecto zoom al pasar el mouse */
+}
+
+
+
+
+
+
+
+
+
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.menu li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+/* Banner */
+.banner {
+  position: relative;
+  text-align: center;
+}
+
+.banner img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.banner-text {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+
+/* Blog */
+.titulo-seccion {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.blog-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 0 40px;
+}
+
+.blog-card {
+  width: 30%;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.blog-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.fecha {
+  background: #000;
+  color: #fff;
+  display: inline-block;
+  padding: 5px 10px;
+  margin-top: 10px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+/* Footer */
+footer {
+  background: #f8f8f8;
+  padding: 30px;
+  margin-top: 50px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.copy {
+  text-align: center;
+  margin-top: 20px;
+  color: #666;
+}

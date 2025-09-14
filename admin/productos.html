@@ -1,0 +1,76 @@
+<!-- admin/productos.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Administrar Productos</title>
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+  <div class="admin-container">
+    <!-- Menú lateral -->
+    <aside class="sidebar" aria-label="Menú de administración">
+      <h2>Admin Panel</h2>
+      <nav>
+        <ul>
+          <li><a href="usuarios.html"> Usuarios</a></li>
+          <li><a href="productos.html" class="active"> Productos</a></li>
+          <li><a href="../index.html">↩ Salir</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Contenido -->
+    <main class="content">
+      <header class="content-header">
+        <h1>Productos</h1>
+        <button type="button" class="btn" onclick="location.href='producto-nuevo.html'"> Nuevo Producto</button>
+      </header>
+
+      <table class="tabla" aria-describedby="tabla-productos-caption">
+            <caption id="tabla-productos-caption" style="display:none;">
+              Listado de productos administrables
+            </caption>
+            <thead class="table-light">
+          <tr>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Acciones</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td>P001</td>
+            <td>Naranjas Valencia</td>
+            <td>Fresca y 100% natural</td>
+            <td>$1.000</td>
+            <td>30</td>
+            <td>
+              <button class="btn btn-sm btn-warning">Editar</button>
+              <button class="btn btn-sm btn-danger">Eliminar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>P002</td>
+            <td>Manzana Fuji</td>
+            <td>Dulces y jugosas</td>
+            <td>$1.200</td>
+            <td>25</td>
+            <td>
+              <button class="btn btn-sm btn-warning">Editar</button>
+              <button class="btn btn-sm btn-danger">Eliminar</button>
+            </td>
+          </tr>
+      </tbody>
+      </table>
+    </main>
+  </div>
+
+  
+  <script type="module" src="js/productos.js"></script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+/* Base */
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+}
+
+/* HERO */
+.hero {
+  min-height: 60vh; /* usa min-height para adaptarse mejor */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  position: relative;
+  background-image: url("../img/index2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+
+  border-radius: 20px;   /* 🔹 Bordes redondeados */
+  margin: 0 2rem;        /* 🔹 Margen a los lados (izq/der) */
+  padding: 2rem;         /* 🔹 Espacio interno para el contenido */
+  overflow: hidden;      /* 🔹 Asegura que la imagen no sobresalga de los bordes */
+  margin-top: 70px; /* Ajusta según la altura real del navbar */
+}
+
+/* Overlay para mejorar contraste del texto en la imagen */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,.35));
+}
+.hero > * {
+  position: relative; /* para quedar encima del overlay */
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  line-height: 1.15;
+  text-wrap: balance;
+  text-shadow: 0 2px 8px rgba(0,0,0,.35);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  text-shadow: 0 1px 4px rgba(0,0,0,.3);
+}
+
+/* Botones propios (scopeados para no romper Bootstrap) */
+.hero .btn,
+.newsletter .btn,
+.product button {
+  display: inline-block;
+  padding: 14px 28px;
+  margin-top: 10px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #000;          /* Texto negro */
+  background: rgba(255, 255, 255, 0.4); /* blanco con 60% de opacidad */
+  color: #fff; 
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background .2s ease, transform .2s ease;
+  outline: none; /* elimina el borde azul de foco */
+  border: none;  /* si quieres asegurarte que no haya borde */
+
+  backdrop-filter: blur(5px);
+
+}
+.hero .btn:hover,
+.newsletter .btn:hover,
+.product button:hover {
+  color: #fff;
+  background:  rgba(255, 255, 255, 0.6);
+  transform: translateY(-1px);
+}
+
+/* Sección Promociones / Cards (scope para no tocar .card de Bootstrap en otras partes) */
+.info {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 60px 20px;
+  flex-wrap: wrap;
+}
+
+.info .card {
+  text-align: center;
+  max-width: 300px;
+  border: none; /* deja a Bootstrap si quieres sombra por defecto quita esta línea */
+  background: transparent;
+}
+.info .card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.card-img-top {
+  width: 100%;        /* que ocupe todo el ancho de la card */
+  height: 250px;      /* altura fija (ajústala a tu gusto) */
+  object-fit: cover;  /* recorta la imagen para que llene el área sin deformarse */
+}
+
+
+.lead.mb-4 {
+    font-weight: 500;
+}
+
+/* Newsletter / Login */
+.newsletter {
+  position: relative;
+  background-image: url("../img/cabeza_inicio.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px;
+}
+.newsletter::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.35);
+}
+.newsletter > * {
+  position: relative;
+}
+.newsletter a.btn {
+  color: #000;
+  background: #fff;
+}
+.newsletter a.btn:hover {
+  background: #e0e0e0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2rem; }
+  .hero p { font-size: 1rem; }
+  .info { flex-direction: column; align-items: center; }
+}
+
+/* Respeto accesibilidad: anima menos si el usuario lo pide */
+@media (prefers-reduced-motion: reduce) {
+  .hero .btn,
+  .newsletter .btn,
+  .product button { transition: none; }
+}
